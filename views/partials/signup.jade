@@ -1,0 +1,19 @@
+//- link(rel='stylesheet', href='/stylesheets/style.css')
+.container
+	form(role="form" ua-signup ng-show="!verificationEmailSent" class="form-signin")
+		h2(class="form-signin-heading") Sign Up
+		input(name="first_name" placeholder="First name" id="first_name" class="form-control" required)
+		input(name="last_name" placeholder="Last name" id="last_name" class="form-control" required)
+		input(name="login" ua-is-email placeholder="Email" id="email" class="form-control" required)
+		input(name="password" placeholder="Password" type="password" id="password" class="form-control" required)
+		br
+		p
+			button(class="btn btn-default" type="submit") Create account
+			&nbsp;&nbsp;
+			a(href="#/", class="btn btn-default")
+				i(class="fa fa-reply")
+		
+		p(ng-show="loading")
+			img(src="https://app.userapp.io/img/ajax-loader-transparent.gif")
+		p(ng-show="error") {{ error.message }}
+	p(ng-show="verificationEmailSent") An email has been sent to your inbox. Click on the link to verify your account.

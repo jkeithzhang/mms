@@ -1,0 +1,88 @@
+link(rel='stylesheet', href='/stylesheets/dashboard.css')
+
+div(class="navbar navbar-default navbar-fixed-top" role="navigation")
+	div(class="container-fluid")
+		div(class="navbar-header")
+			button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse")
+				span(class="sr-only") Toggle navigation
+				span(class="icon-bar")
+				span(class="icon-bar")
+				span(class="icon-bar")
+			a(class="navbar-brand" href="") Welcome, {{ user.first_name }}!
+
+		div(class="navbar-collapse collapse")
+			ul(class="nav navbar-nav navbar-right")
+				li
+					a(href="#") Dashboard
+				li
+					a(href="#") Settings
+				li
+					a(href="#") Profile
+				li
+					a(href="#") Help
+			form(class="navbar-form navbar-right")
+				input(type="text" class="form-control" placeholder="Search...")
+
+div(class="container-fluid")
+	div(class="row")
+		div(class="col-sm-3 col-md-2 sidebar")
+			ul(class="nav nav-sidebar")
+				li(class="active")
+					a(href="#") Overview
+				li
+					a(href="#") Reports
+				li
+					a(href="#") Analytics
+				li
+					a(href="#") Export
+				li
+					a(href="#")
+						i(class="fa fa-reply")	 Back
+		
+		div(class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main")
+			
+			div Click me:	
+				input(type="checkbox" ng-model="checked" ng-init="checked=true")
+				span(ng-if="checked") This is removed when the checkbox is unchecked.
+			h1(class="page-header") Dashboard
+			div(class="row placeholders")
+				div(class="col-xs-6 col-sm-3 placeholder")
+					img(src="/images/demo.svg" class="img-responsive" alt="Generic placeholder thumbnail")
+					h4 Label
+					span(class="text-muted") Something else
+				div(class="col-xs-6 col-sm-3 placeholder")
+					img(src="/images/demo.svg" class="img-responsive" alt="Generic placeholder thumbnail")
+					h4 Label
+					span(class="text-muted") Something else
+				div(class="col-xs-6 col-sm-3 placeholder")
+					img(src="/images/demo.svg" class="img-responsive" alt="Generic placeholder thumbnail")
+					h4 Label
+					span(class="text-muted") Something else
+				div(class="col-xs-6 col-sm-3 placeholder")
+					img(src="/images/demo.svg" class="img-responsive" alt="Generic placeholder thumbnail")
+					h4 Label
+					span(class="text-muted") Something else
+			h2(class="sub-header") Section title
+			div(class="table-responsive")
+				table(class="table table-striped" ng-controller='PhoneListCtrl')
+					thead
+						tr
+							th #
+							th Header
+							th Header
+					tbody(ng-repeat='phone in phones')
+						tr
+							td ROW
+							td {{phone.name}}
+							td {{phone.snippet}}
+
+
+//- p 1 + 2 = {{ 1 + 2 }}
+//- div Search: 
+//- 	input(ng-model="query")
+//- div {{'ww' | checkmark}}
+//- ul
+//- 	li(ng-repeat="phone in phones | filter:query") {{phone.name}}
+//- div(ng-show="user.authenticated") Welcome!
+//- 	li(ng-show="user.authenticated")
+//- 		a(href="#" ua-logout) Log Out

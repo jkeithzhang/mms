@@ -1,0 +1,48 @@
+div.testmodal
+	script(type="text/ng-template" id="add-record-modal.jade")
+	.modal-header
+		h3.modal-title Add record
+	form(ng-submit="submit()")
+		.modal-body.row
+			.col-md-6
+				table.table.table-condensed
+					tr
+						td.pull-right Name
+						td
+							input(ng-model="item.name", placeholder="name" required)
+					tr
+						td.pull-right Price
+						td
+							input(ng-model="item.price", placeholder="price" required)
+					tr
+						td.pull-right Location
+						td
+							input(ng-model="item.location", placeholder="location" required)
+					tr
+						td.pull-right Shop
+						td
+							input(ng-model="item.shop", placeholder="shop" required)
+					tr
+						td.pull-right Note
+						td
+							textarea(ng-model="item.note", placeholder="note" required)
+
+			.col-md-6
+				table.table
+					tr
+						td.pull-right Type
+						td
+							select.form-control.typebox(ng-model="item.type" ng-options="(option.value) for option in options")
+								option(value="") Choose type
+					tr
+						td.pull-right Income
+						td
+							input(ng-model="item.income", type="checkbox")
+
+		.modal-body.row(ng-show="showFlag")
+			.col-md-12.flash-message
+				span The consuming record has been added successfully!
+
+		.modal-footer
+			input.btn.btn-primary(type="submit" value="submit")
+			button.btn.btn-warning(ng-click="cancel()") cancel

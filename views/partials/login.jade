@@ -1,0 +1,16 @@
+.container
+	form(role="form" ua-login class="form-login")
+		h2(class="form-signin-heading") Log in
+		input(class="form-control" name="login" placeholder="Username" required)
+		input(class="form-control" name="password" placeholder="Password" type="password" required)
+		br
+		p
+			button(type="submit", class="btn btn-default") Log in
+			&nbsp;&nbsp;
+			a(href="#/", class="btn btn-default")
+				i(class="fa fa-reply")
+		
+		p(ng-show="loading")
+			img(src="https://app.userapp.io/img/ajax-loader-transparent.gif")
+		p(ng-show="error") {{ error.message }}
+	p(ng-show="verificationEmailSent") An email has been sent to your inbox. Click on the link to verify your account.

@@ -1,0 +1,77 @@
+.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+	
+	//- div Click me:	
+	//- 	input(type="checkbox" ng-model="checked" ng-init="checked=true")
+	//- 	span(ng-if="checked") This is removed when the checkbox is unchecked.
+	h1(class="page-header") Current month
+	div(class="row placeholders")
+		div(class="col-xs-6 col-sm-3 placeholder")
+			img(src="/images/demo.svg" class="img-responsive" alt="Generic placeholder thumbnail")
+			h4 Label
+			span(class="text-muted") Something else
+		div(class="col-xs-6 col-sm-3 placeholder")
+			img(src="/images/demo.svg" class="img-responsive" alt="Generic placeholder thumbnail")
+			h4 Label
+			span(class="text-muted") Something else
+		div(class="col-xs-6 col-sm-3 placeholder")
+			img(src="/images/demo.svg" class="img-responsive" alt="Generic placeholder thumbnail")
+			h4 Label
+			span(class="text-muted") Something else
+		div(class="col-xs-6 col-sm-3 placeholder")
+			img(src="/images/demo.svg" class="img-responsive" alt="Generic placeholder thumbnail")
+			h4 Label
+			span(class="text-muted") Something else
+	h2(class="sub-header") Select week
+	div(class="table-responsive" ng-controller="DatepickerCtrl")
+		.datepicker
+			//-FIRST SOLUTION
+			datepicker(class="col-md-5" ng-model="dt" how-weeks="true" class="well well-sm" ng-click='chosen()')
+			.col-md-6
+				accordion(ng-show="lists!=null" ng-repeat="list in lists" close-others="oneAtATime" class='test')
+					accordion-group
+						accordion-heading
+							i.fa.fa-tags &nbsp;{{list.date}}
+						table.table.table-hover.table-condensed.table-striped(ng-if="lists!=null")
+							thead.thead
+								th TYPE
+								th SHOP
+								th LOCATION
+								th PRICE
+								th
+							tr(ng-repeat="record in list.consuming")
+								td
+									i(class='fa fa-lg {{record.type}}')
+									//- i.fa.fa-car.fa-lg(ng-if="record.type=='vehicle'")
+									//- i.fa.fa-home.fa-lg(ng-if="record.type=='home'")
+									//- i.fa.fa-cutlery.fa-lg(ng-if="record.type=='food'")
+									//- i.fa.fa-suitcase.fa-log(ng-if="record.type=='tour'"}})
+									//- i.fa.fa-suitcase.fa-log(ng-if="record.type=='tour'"}})
+									//- social
+									//- manageable
+								td  {{record.shop}}
+								td  {{record.location}}
+								td(ng-if='record.income') 
+									i(class='fa fa-lg fa-plus-square') 
+										span ${{record.price}} 
+								td(ng-if='!record.income')  
+									i(class='fa fa-lg fa-minus-square') 
+										span &nbsp;${{record.price}}
+								td
+									i.fa.fa-lg.fa-pencil.clickable(ng-click="test()")
+							tr(ng-if="lists!=null")
+								td(colspan="100%" align="right")
+									button(ng-click="openModal(list.date)")
+										i.fa.fa-plus.click
+				accordion(ng-if="lists==null")
+					accordion-group
+						accordion-heading
+							i.fa.fa-tags &nbsp; Click here to add record
+						table.table.table-hover.table-condensed.table-striped
+							tr(ng-if="lists==null")
+								td(colspan="100%" align="right")
+									button(ng-click="openModal(list.date)")
+										i.fa.fa-plus.click
+
+
+
+

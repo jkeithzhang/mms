@@ -1,0 +1,198 @@
+extends layout
+
+block content	
+	nav(class="navbar navbar-default navbar-fixed-top")
+		div(class="container")
+			div(class="navbar-header page-scroll")
+				button(type="button", class="navbar-toggle", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1")
+					span(class="sr-only") Toggle navigation
+					span(class="icon-bar")
+					span(class="icon-bar")
+					span(class="icon-bar")
+				a(class="navbar-brand", href="#page-top") Start MMS Trail
+
+			div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
+				ul(class="nav navbar-nav navbar-right")
+					li(class="hidden")
+						a(href="#page-top")
+					li(class="page-scroll")
+						a(href="#portfolio") Dock
+					li(class="page-scroll")
+						a(href="#about") About	
+					li(ng-show="!user.authenticated" class="page-scroll")
+						a(href="#login") Log in
+					li(ng-show="user.authenticated")
+						a(href="/#" ua-logout) Log Out
+					li(ng-show="user.authenticated")
+						i(href="/" class="fa fa-search-plus") HERE					
+
+	header
+		div(class="container")
+			div(class="row")
+				div(class="col-lg-12")
+					img(class="img-responsive", src="/vendor/freelancer/img/profile.png", alt="")
+					div(class="intro-text")
+						span(class="name") Start Ke's MMS
+						hr(class="star-light")
+						span(class="skills") --Designed and built with all the love in the world by @Ke--
+
+	section(id="portfolio")
+		div(class="container")
+			div(class="row")
+				div(class="col-lg-12 text-center")
+					h2 Dock
+					hr(class="star-primary")
+		div(class="row")
+			div(class="col-sm-4 portfolio-item")
+				a(href="#portfolioModal1", class="portfolio-link", data-toggle="modal")
+					div(class="caption")
+						div(class="caption-content")
+							i(class="fa fa-search-plus fa-3x")
+					img(class="img-responsive", src="/vendor/freelancer/img/portfolio/cabin.png", alt="")
+			
+			div(class="col-sm-4 portfolio-item")
+				a(href="#portfolioModal2", class="portfolio-link", data-toggle="modal")
+					div(class="caption")
+						div(class="caption-content")
+							i(class="fa fa-search-plus fa-3x")
+					img(class="img-responsive", src="/vendor/freelancer/img/portfolio/cake.png", alt="")		
+
+			div(class="col-sm-4 portfolio-item")
+				a(href="#portfolioModal3", class="portfolio-link", data-toggle="modal")
+					div(class="caption")
+						div(class="caption-content")
+							i(class="fa fa-search-plus fa-3x")
+					img(class="img-responsive", src="/vendor/freelancer/img/portfolio/circus.png", alt="")
+
+			div(class="col-sm-4 portfolio-item")
+				a(href="#portfolioModal4", class="portfolio-link", data-toggle="modal")
+					div(class="caption")
+						div(class="caption-content")
+							i(class="fa fa-search-plus fa-3x")
+					img(class="img-responsive", src="/vendor/freelancer/img/portfolio/game.png", alt="")
+
+			div(class="col-sm-4 portfolio-item")
+				a(href="#portfolioModal5", class="portfolio-link", data-toggle="modal")
+					div(class="caption")
+						div(class="caption-content")
+							i(class="fa fa-search-plus fa-3x")
+					img(class="img-responsive", src="/vendor/freelancer/img/portfolio/safe.png", alt="")
+
+			div(class="col-sm-4 portfolio-item")
+				a(href="#portfolioModal6", class="portfolio-link", data-toggle="modal")
+					div(class="caption")
+						div(class="caption-content")
+							i(class="fa fa-search-plus fa-3x")
+					img(class="img-responsive", src="/vendor/freelancer/img/portfolio/submarine.png", alt="")
+
+	//- about section
+	section(class="success" id="about")
+		div(class="container")
+			div(class="row")
+				div(class="col-lg-12 text-center")
+					h2 About
+					hr(class="star-light")
+			div(class="row")
+				div(class="col-lg-4 col-lg-offset-2")
+					p MMS is short for Money Management System, which is an web application for Ke's family to manage their incomes, daily expenses, etc. in case they won't go bankrupt due to the uncontrolled consumption, also keep their money and bank infomation on track.
+				div(class="col-lg-4")
+					p Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!	
+				div(class="col-lg-8 col-lg-offset-2 text-center")
+					a(href="#", class="btn btn-lg btn-outline")
+						i(class="fa fa-download")
+
+
+	//- login section
+	section(id="login")
+		div(class="container")
+			div(class="row")
+				div(class="col-lg-12 text-center")
+					h2 Log In
+					hr(class="star-primary")
+			div(class="row")
+				div(class="col-lg-8 col-lg-offset-2")
+					form(name="sentMessage", id="loginForm" novalidate)
+						div(class="row control-group")
+							div(class="form-group col-xs-12 floating-label-form-group controls")
+								label Name
+							input(type="text", class="form-control", placeholder="Name", id="name", required, data-validation-required-message="Please enter your name.")
+							p(class="help-block text-danger")
+
+						div(class="row control-group")
+							div(class="form-group col-xs-12 floating-label-form-group controls")
+								label Email Address
+							input(type="email", class="form-control", placeholder="Email Address", id="email", required, data-validation-required-message="Please enter email address.")
+							p(class="help-block text-danger")
+
+						br
+						div(id="success")
+						div(class="row")
+							div(class="text-center form-group col-xs-12")
+								button(type="submit", class="btn btn-success btn-lg") Log in
+
+	//- footer
+	footer(class="text-center")
+		div(class="footer-above")
+			div(class="container")
+				div(class="row")
+					div(class="footer-col col-md-4")
+						h3 Location
+						p 170 Lees Ave
+						p Ottawa, Ontario
+					div(class="footer-col col-md-4")
+						h3 Contact Me Through
+						ul(class="list-inline")
+							li
+								a(href="#", class="btn-social btn-outline")
+									i(class="fa fa-fw fa-facebook")
+							li
+								a(href="#", class="btn-social btn-outline")
+									i(class="fa fa-fw fa-google-plus")
+							li
+								a(href="#", class="btn-social btn-outline")
+									i(class="fa fa-fw fa-twitter")
+							li
+								a(href="#", class="btn-social btn-outline")
+									i(class="fa fa-fw fa-linkedin")
+							li
+								a(href="#", class="btn-social btn-outline")
+									i(class="fa fa-fw fa-dribbble")		
+					div(class="footer-col col-md-4")
+						h3 About MMS
+						p MMS is still under Ke's continues work, and it will be avilable to use soon.
+
+		div(class="footer-below")
+			div(class="container")
+				div(class="row")
+					div(class="col-lg-12") Copyright &copy; Ke's MMS App 2014
+
+block scripts
+	//- vendor
+	script(src='/vendor/freelancer/js/jquery-1.11.0.js')
+	script(src='/vendor/angular/angular.min.js')
+	script(src='/vendor/angular-route/angular-route.min.js')
+	script(src='/vendor/angular-resource/angular-resource.min.js')
+	script(src='/vendor/bootstrap/js/bootstrap.min.js')
+	script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+	script(src='/vendor/freelancer/js/classie.js')
+	script(src='/vendor/freelancer/js/cbpAnimatedHeader.js')
+	script(src='/vendor/freelancer/js/jqBootstrapValidation.js')
+	script(src='/vendor/freelancer/js/contact_me.js')
+	script(src='/vendor/freelancer/js/freelancer.js')
+	
+	//- controller
+	script(src='/javascripts/apps/app.js')			
+	script(src='/javascripts/controllers/controller.js')
+	script(src='/javascripts/filters/filter.js')
+	script(src='/javascripts/services/service.js')
+
+	//- userapp
+	script(src='https://app.userapp.io/js/userapp.client.js')
+	script(src='https://app.userapp.io/js/angularjs.userapp.js')
+
+
+
+
+
+
+
