@@ -8,7 +8,7 @@ phonecatControllers
 	.controller('PhoneListCtrl', ['$scope', '$routeParams', '$anchorScroll', 'display',
 		function($scope, $routeParams, $anchorScroll, display) {
 			
-			// Insert an record
+			// Insert an record, test version
 			$scope.insert = function() {
 				display.get()
 					.success(function(data) {
@@ -122,16 +122,17 @@ phonecatControllers
 				$scope.item.per.last_name = $scope.user.last_name;
 				$scope.item.per.email = $scope.user.email;
 				if($scope.item.income == false || $scope.item.income == undefined) {
-					$scope.item.income = false
+					$scope.item.income = false;
 				}
-				display.insert($scope.item, $scope.selectedDate)
-					.success(function() {
-						console.log('insert done!');
-						$scope.showFlag=true;
-						setTimeout(function() {
-							$modalInstance.close();
-						}, 1000);
-					})
+				console.log($scope.item);
+				// display.insert($scope.item, $scope.selectedDate)
+				// 	.success(function() {
+				// 		console.log('insert done!');
+				// 		$scope.showFlag=true;
+				// 		setTimeout(function() {
+				// 			$modalInstance.close();
+				// 		}, 1000);
+				// 	})
 			};
 
 			$scope.cancel = function () {

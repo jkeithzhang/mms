@@ -6,7 +6,7 @@ var db = new MongoDB('mms', new Server('localhost', 27017, {auto_reconnect: true
 		if(e) {
 			console.log('error');
 		} else {
-			console.log('connect to database :: myappmms');
+			console.log('connected to database :: myappmms');
 		}
 	});
 
